@@ -1,10 +1,16 @@
 package br.com.puctech.battle_arena.model;
 
+import jakarta.persistence.*;
+
+@Table(name = "jogador")
+@Entity
 public class Player {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private Integer vida;
+    private Integer vida = 100;
 
     public Long getId() {
         return id;
