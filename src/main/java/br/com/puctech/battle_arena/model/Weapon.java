@@ -2,18 +2,19 @@ package br.com.puctech.battle_arena.model;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
-
-@Table(name = "jogador")
 @Entity
-public class Player {
+public class Weapon {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
-    private Integer vida = 100;
+    private int dano;
+
+    @ManyToOne
+    @JoinColumn(name = "player_id")
+    private Player dono;
 
     public Long getId() {
         return id;
@@ -31,11 +32,19 @@ public class Player {
         this.nome = nome;
     }
 
-    public Integer getVida() {
-        return vida;
+    public int getDano() {
+        return dano;
     }
 
-    public void setVida(Integer vida) {
-        this.vida = vida;
+    public void setDano(int dano) {
+        this.dano = dano;
+    }
+
+    public Player getDono() {
+        return dono;
+    }
+
+    public void setDono(Player dono) {
+        this.dono = dono;
     }
 }
