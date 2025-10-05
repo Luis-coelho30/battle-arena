@@ -15,9 +15,6 @@ public class Player {
     private String nome;
     private Integer vida = 100;
 
-    @OneToMany(mappedBy = "dono", cascade = CascadeType.ALL)
-    private Set<Weapon> playerWeapon;
-
     public Long getId() {
         return id;
     }

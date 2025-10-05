@@ -13,6 +13,7 @@ public class Weapon {
     private int dano;
 
     @ManyToOne
+    @JoinColumn(name = "player_id")
     private Player dono;
 
     public Long getId() {
