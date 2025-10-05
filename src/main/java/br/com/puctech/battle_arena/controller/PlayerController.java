@@ -15,7 +15,7 @@ public class PlayerController {
         return ResponseEntity.ok(null);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{playerId}")
     public ResponseEntity<Player> getByID(@PathVariable Long playerId) {
         return ResponseEntity.ok(null);
     }
@@ -25,12 +25,12 @@ public class PlayerController {
         return ResponseEntity.ok(null);
     }
 
-    @GetMapping("/{id1}/attack/{id2}")
-    public ResponseEntity<String> attackPlayer(@PathVariable Long id1, @PathVariable Long id2) {
+    @PutMapping("/attack/{id}")
+    public ResponseEntity<String> attackPlayer(@PathVariable Long id) {
         return ResponseEntity.ok(null);
     }
 
-    @GetMapping("/heal/{id}")
+    @PutMapping("/heal/{id}")
     public ResponseEntity<String> healPlayer(@PathVariable Long id) {
         return ResponseEntity.ok(null);
     }
