@@ -45,9 +45,8 @@ public class PlayerService {
 
             return "Jogador " + player.getNome() + " foi ferido!\nVida = " + newLife;
         }
-        else {
-            return "Jogador " + player.getNome() + " esquivou com sucesso!";
-        }
+
+        return "Jogador " + player.getNome() + " esquivou com sucesso!";
     }
 
     public String healPlayer(Long id) {
@@ -68,8 +67,8 @@ public class PlayerService {
 
             return "Jogador " + player.getNome() + " se curou!\nVida = " + newLife;
         }
-        else {
-            return "Jogador " + player.getNome() + " falhou em se curar!";
-        }
+
+
+        return "Jogador " + player.getNome() + " falhou em se curar!";
     }
 }
