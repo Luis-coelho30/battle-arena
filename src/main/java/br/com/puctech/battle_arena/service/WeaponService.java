@@ -2,6 +2,7 @@ package br.com.puctech.battle_arena.service;
 
 import br.com.puctech.battle_arena.model.Player;
 import br.com.puctech.battle_arena.model.Weapon;
+import br.com.puctech.battle_arena.repository.PlayerRepository;
 import br.com.puctech.battle_arena.repository.WeaponRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class WeaponService {
     private WeaponRepository weaponRepository;
 
     @Autowired
-    private PlayerService playerService;
+    private PlayerRepository playerRepository;
 
     public List<Weapon> getAll() {
         return weaponRepository.findAll();
@@ -26,8 +27,12 @@ public class WeaponService {
         return weaponRepository.findById(id);
     }
 
+    public List<Weapon> getWeaponByPlayer(Long playerId) {
+        return weaponRepository.findWeaponByPlayer(playerId);
+    }
+
     public String addWeapon(Long playerId) {
-        Optional<Player> player = playerService.getPlayerById(playerId);
+        Optional<Player> player = playerRepository.findById(playerId);
 
         if(player.isPresent()) {
             Weapon weapon = weaponRepository.findRandomWeapon();

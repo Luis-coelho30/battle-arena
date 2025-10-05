@@ -4,8 +4,13 @@ import br.com.puctech.battle_arena.model.Weapon;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 public interface WeaponRepository extends JpaRepository<Weapon, Long> {
 
     @Query(value = "SELECT * FROM weapon WHERE player_id IS NULL ORDER BY RANDOM() LIMIT 1", nativeQuery = true)
     Weapon findRandomWeapon();
+
+    @Query(value = "SELECT * FROM weapon WHERE player_id = ?1", nativeQuery = true)
+    List<Weapon> findWeaponByPlayer(Long playerId);
 }

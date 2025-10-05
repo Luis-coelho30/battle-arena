@@ -42,10 +42,10 @@ public class PlayerController {
         return ResponseEntity.ok(savedPlayer);
     }
 
-    @PutMapping("/attack/{id}")
-    public ResponseEntity<String> attackPlayer(@PathVariable Long id) {
+    @PutMapping("{playerId}/attack/{targetId}")
+    public ResponseEntity<String> attackPlayer(@PathVariable Long playerId, @PathVariable Long targetId) {
         try {
-            return ResponseEntity.ok(playerService.attackPlayer(id));
+            return ResponseEntity.ok(playerService.attackPlayer(playerId, targetId));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.notFound().build();
         }
